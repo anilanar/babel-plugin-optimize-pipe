@@ -1,0 +1,13 @@
+{
+  "name": "babel-plugin-optimize-pipe",
+  "homepage": "https://github.com/anilanar/babel-plugin-optimize-pipe",
+  "repository": "https://github.com/anilanar/babel-plugin-optimize-pipe.git",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "prepare": "mklib prepare"
+  },
+  "devDependencies": {
+    "@anilanar/mklib": "^3.0.5"
+  }
+}

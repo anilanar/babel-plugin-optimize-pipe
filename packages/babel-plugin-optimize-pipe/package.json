@@ -1,0 +1,38 @@
+{
+  "name": "babel-plugin-optimize-pipe",
+  "version": "0.0.0",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "types": "dist/es/index.d.ts",
+  "sideEffects": false,
+  "homepage": "https://github.com/anilanar/babel-plugin-optimize-pipe",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anilanar/babel-plugin-optimize-pipe.git",
+    "directory": "packages/babel-plugin-optimize-pipe"
+  },
+  "author": "",
+  "license": "MIT",
+  "files": [
+    "dist/es",
+    "dist/cjs"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "build:cjs": "tsc -b tsconfig.cjs.json",
+    "clean": "rm -rf dist",
+    "lint": "eslint src --ext .ts",
+    "test": "jest"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/traverse": "^7.0.0",
+    "@types/jest": "^26.0.20"
+  },
+  "dependencies": {
+    "fp-ts": "^2.9.5"
+  }
+}

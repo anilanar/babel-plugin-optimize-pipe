@@ -1,0 +1,1 @@
+See the [homepage](https://github.com/anilanar/babel-plugin-optimize-pipe).
