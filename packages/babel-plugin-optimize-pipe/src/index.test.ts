@@ -1,7 +1,7 @@
 import * as B from "@babel/core";
 import plugin from "./index";
 
-it("common case", async () => {
+test("common case", async () => {
     const result = await assert(`
         import { pipe } from 'fp-ts/function';
         pipe(a, b, c, d);
@@ -12,7 +12,7 @@ it("common case", async () => {
     `);
 });
 
-it("with inline functions", async () => {
+test("with inline functions", async () => {
     const result = await assert(`
         import { pipe } from 'fp-ts/function';
         pipe(a, x => x + 1, c, d);
@@ -23,7 +23,7 @@ it("with inline functions", async () => {
     `);
 });
 
-it("arg spread", async () => {
+test("arg spread", async () => {
     const result = await assert(`
         import { pipe } from 'fp-ts/function';
         pipe(a, b, c, ...d);
@@ -31,6 +31,17 @@ it("arg spread", async () => {
     expect(result).toMatchInlineSnapshot(`
         "import { pipe } from 'fp-ts/function';
         pipe(a, b, c, ...d);"
+    `);
+});
+
+test("irrelevant pipe from another module", async () => {
+    const result = await assert(`
+        import { pipe } from 'foobar';
+        pipe(a, b, c, d);
+    `);
+    expect(result).toMatchInlineSnapshot(`
+        "import { pipe } from 'foobar';
+        pipe(a, b, c, d);"
     `);
 });
 
